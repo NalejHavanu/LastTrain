@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>LastTrain - Restaurace</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: url('https://i.imgur.com/7b6j16D.png') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+            position: relative;
+            min-height: 100vh;
+        }
+        header {
+            background-color: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 15px;
+            margin-bottom: 30px;
+            position: relative;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        h1 {
+            font-size: 3em;
+            margin-bottom: 10px;
+            color: #00d8ff;
+        }
+        p {
+            font-size: 1.2em;
+            color: #eeeeee;
+            margin-bottom: 15px;
+        }
+        nav {
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        nav button {
+            background: #00d8ff;
+            border: none;
+            padding: 12px 25px;
+            margin: 0 10px;
+            border-radius: 25px;
+            font-weight: bold;
+            color: #000;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        nav button:hover,
+        nav button.active {
+            background: #00aacc;
+        }
+        section {
+            background-color: rgba(0, 0, 0, 0.6);
+            border-radius: 15px;
+            padding: 25px 30px;
+            max-width: 700px;
+            margin: 0 auto 40px auto;
+            text-align: left;
+            display: none;
+        }
+        section.active {
+            display: block;
+        }
+        h2 {
+            margin-bottom: 15px;
+            color: #00d8ff;
+            text-align: center;
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        li {
+            margin: 8px 0;
+            font-size: 1.1em;
+        }
+        footer {
+            margin-top: 60px;
+            font-size: 0.9em;
+            color: #ccc;
+            text-align: center;
+        }
+
+        /* Logo vlevo nahoře */
+        #logo {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            width: 120px;
+            height: auto;
+            z-index: 1000;
+        }
+
+        /* Obrázek vpravo nahoře s odkazem */
+        #top-right-image {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            width: 140px;
+            height: auto;
+            z-index: 1000;
+            cursor: pointer;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.5);
+            transition: transform 0.3s ease;
+        }
+        #top-right-image:hover {
+            transform: scale(1.05);
+        }
+    </style>
+</head>
+<body>
+    <!-- Logo restaurace -->
+    <img id="logo" src="https://i.imgur.com/33WnLmv.jpeg" />
+
+    <!-- Obrázek vpravo nahoře s odkazem, uprav link podle potřeby -->
+    <a href="#" target="_blank" rel="noopener noreferrer">
+        <img id="top-right-image" src="https://i.imgur.com/N9bQ7Pf.jpg" alt="Specialní nabídka" />
+    </a>
+
+    <header>
+        <h1>LastTrain</h1>
+        <p>Vítejte v naší restauraci — zážitek, který si zamilujete!</p>
+        <a href="https://discord.gg/tBhYhWrvMJ" class="button" target="_blank" rel="noopener noreferrer"
+           style="display:inline-block; margin-top:15px; padding:12px 25px; background:#00d8ff; color:#000; border-radius:25px; font-weight:bold; text-decoration:none;">
+            Připojit se na Discord
+        </a>
+    </header>
+
+    <nav>
+        <button class="nav-btn active" data-target="team">Tým</button>
+        <button class="nav-btn" data-target="info">Informace</button>
+    </nav>
+
+    <section id="team" class="active">
+        <h2>Náš tým</h2>
+        <ul>
+            <li><strong>Majitel:</strong> Akim Garcia</li>
+            <li><strong>Šéfkuchař:</strong> Jana Nováková</li>
+            <li><strong>Číšníci:</strong> Petr Svoboda, Eva Dvořáková</li>
+            <li><strong>Manažer:</strong> Martin Horák</li>
+        </ul>
+    </section>
+
+    <section id="info">
+        <h2>Informace o restauraci</h2>
+        <p><strong>Adresa:</strong> Postal 490</p>
+        <p><strong>Telefon:</strong> +420 123 456 789</p>
+        <p><strong>Otevírací doba:</strong>sledujte inzerát</p>
+        <p><strong>Speciality:</strong> LastTrain Sandwich</p>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 LastTrain. Všechna práva vyhrazena.</p>
+    </footer>
+
+    <script>
+        const buttons = document.querySelectorAll('nav .nav-btn');
+        const sections = document.querySelectorAll('section');
+
+        buttons.forEach(btn => {
+            btn.addEventListener('click', () => {
+                buttons.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                sections.forEach(sec => sec.classList.remove('active'));
+
+                const targetId = btn.getAttribute('data-target');
+                document.getElementById(targetId).classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
