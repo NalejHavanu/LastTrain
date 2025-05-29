@@ -1,137 +1,140 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LastTrain</title>
-<style>
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: url('https://i.imgur.com/7b6j16D.png') no-repeat center center fixed;
-    background-size: cover;
-    color: white;
-    padding: 50px 20px 20px 20px;
-  }
-  header {
-    background-color: rgba(0,0,0,0.6);
-    padding: 20px 60px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  header .logo {
-    height: 60px;
-  }
-  header .top-image-link img {
-    height: 60px;
-    border-radius: 10px;
-    cursor: pointer;
-  }
-  header h1 {
-    color: #00d8ff;
-    font-size: 2.8em;
-    flex-grow: 1;
-    margin-left: 20px;
-  }
-  header p {
-    color: #eeeeee;
-    font-size: 1.2em;
-    position: absolute;
-    bottom: -30px;
-    left: 60px;
-  }
-  nav {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-  nav button {
-    background: #00d8ff;
-    border: none;
-    padding: 12px 25px;
-    margin: 0 10px;
-    border-radius: 25px;
-    font-weight: bold;
-    color: #000;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  nav button:hover,
-  nav button.active {
-    background: #00aacc;
-  }
-  section {
-    background-color: rgba(0,0,0,0.6);
-    border-radius: 15px;
-    padding: 25px 30px;
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-    text-align: left;
-    display: none;
-  }
-  section.active {
-    display: block;
-  }
-  h2 {
-    margin-bottom: 15px;
-    color: #00d8ff;
-    text-align: center;
-  }
-  ul {
-    list-style: none;
-    padding-left: 0;
-  }
-  li {
-    margin: 8px 0;
-    font-size: 1.1em;
-  }
-  footer {
-    margin-top: 60px;
-    font-size: 0.9em;
-    color: #ccc;
-    text-align: center;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LastTrain</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: url('https://i.imgur.com/7b6j16D.png') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      padding: 50px 20px 20px 20px;
+    }
+    header {
+      background-color: rgba(0,0,0,0.6);
+      padding: 20px 60px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .logo {
+      height: 60px;
+      border-radius: 10px;
+    }
+    header h1 {
+      color: #00d8ff;
+      font-size: 2.8em;
+      flex-grow: 1;
+      text-align: center;
+    }
+    nav {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+    nav button {
+      background: #00d8ff;
+      border: none;
+      padding: 12px 25px;
+      margin: 0 10px;
+      border-radius: 25px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    nav button:hover,
+    nav button.active {
+      background: #00aacc;
+    }
+    section {
+      background-color: rgba(0,0,0,0.6);
+      border-radius: 15px;
+      padding: 25px 30px;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      text-align: left;
+      display: none;
+    }
+    section.active {
+      display: block;
+    }
+    h2 {
+      margin-bottom: 15px;
+      color: #00d8ff;
+      text-align: center;
+    }
+    a {
+      color: #00d8ff;
+      text-decoration: underline;
+    }
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #ccc;
+      text-align: center;
+    }
+  </style>
 </head>
 <body>
   <header>
     <img src="https://i.imgur.com/33WnLmv.jpeg" alt="LastTrain logo" class="logo" />
-    <h1>LastTrain restaurant</h1*
-    </a>
+    <h1>LastTrain restaurant</h1>
+    <img src="https://i.imgur.com/33WnLmv.jpeg" alt="LastTrain logo" class="logo" />
   </header>
 
   <nav>
     <button class="nav-btn" data-target="info">Info</button>
+    <button class="nav-btn" data-target="menu">Jídelní lístek</button>
+    <button class="nav-btn" data-target="hledame">Hledáme</button>
+    <button class="nav-btn" data-target="opodniku">O podniku</button>
   </nav>
 
   <section id="info">
     <h2>Informace o restauraci</h2>
     <p><strong>Adresa:</strong> Postal 490</p>
-    <p><strong>Otevírací doba:</strong>Sledujte zlaté stránky</p>
+    <p><strong>Otevírací doba:</strong> Sledujte zlaté stránky</p>
+    <p><a href="https://discord.gg/tvujodkaz" target="_blank">Připojit se na Discord</a></p>
+  </section>
+
+  <section id="menu">
+    <h2>Jídelní lístek</h2>
+    <p>Nahlédněte do našeho aktuálního jídelního lístku:</p>
+    <p><a href="https://i.imgur.com/tvuj-jidelnicek.jpg" target="_blank">Zobrazit jídelní lístek (obrázek)</a></p>
+  </section>
+
+  <section id="hledame">
+    <h2>Hledáme posilu</h2>
+    <p>Aktuálně hledáme nové členy do týmu! Přidej se k nám jako číšník, kuchař nebo manažer.</p>
+    <p><a href="https://discord.gg/tvujodkaz" target="_blank">Připojit se na Discord</a></p>
+  </section>
+
+  <section id="opodniku">
+    <h2>O podniku</h2>
+    <p>Zde bude detailní text o vašem podniku. Můžete sem napsat historii, koncept, filozofii nebo unikátní nabídku restaurace.</p>
   </section>
 
   <footer>
     <p>&copy; 2024 LastTrain. Všechna práva vyhrazena.</p>
   </footer>
 
-<script>
-  const buttons = document.querySelectorAll('nav .nav-btn');
-  const sections = document.querySelectorAll('section');
+  <script>
+    const buttons = document.querySelectorAll('nav .nav-btn');
+    const sections = document.querySelectorAll('section');
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      sections.forEach(sec => sec.classList.remove('active'));
-      const targetId = btn.getAttribute('data-target');
-      document.getElementById(targetId).classList.add('active');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        sections.forEach(sec => sec.classList.remove('active'));
+        const targetId = btn.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+      });
     });
-  });
-</script>
+  </script>
 </body>
 </html>
