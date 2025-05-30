@@ -1,154 +1,167 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>LastTrain</title>
-<style>
-  * {
-    margin: 0; padding: 0; box-sizing: border-box;
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>LastTrain</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-  body, html {
-    height: 100%;
-    overflow-x: hidden;
-  }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background-color: #111;
+      color: white;
+      padding: 50px 20px 20px 20px;
+    }
 
-  body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    padding: 50px 20px 20px 20px;
-    position: relative;
-    z-index: 1;
-  }
+    /* Video kontejner na levé straně uprostřed */
+    .video-container {
+      position: fixed;
+      left: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      background-color: #333;
+      border: 2px solid #888;
+      border-radius: 15px;
+      overflow: hidden;
+      width: 300px;
+      max-height: 400px;
+      z-index: -1;
+    }
 
-  /* Video background */
-  #background-video {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    object-fit: cover;
-    z-index: -1;
-  }
+    .video-container video {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-  header {
-    background-color: rgba(0,0,0,0.6);
-    padding: 20px 40px;
-    border-radius: 15px;
-    margin-bottom: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    flex-wrap: wrap;
-  }
-
-  .logo {
-    height: 60px;
-    border-radius: 10px;
-  }
-
-  .title {
-    flex: 1;
-    text-align: center;
-    font-size: 2em;
-    color: #00d8ff;
-  }
-
-  .discord-link img {
-    height: 48px;
-    width: 48px;
-    transition: transform 0.3s;
-  }
-
-  .discord-link img:hover {
-    transform: scale(1.1);
-  }
-
-  nav {
-    text-align: center;
-    margin-bottom: 40px;
-    flex-wrap: wrap;
-  }
-
-  nav button {
-    background: #00d8ff;
-    border: none;
-    padding: 12px 25px;
-    margin: 5px;
-    border-radius: 25px;
-    font-weight: bold;
-    color: #000;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-
-  nav button:hover,
-  nav button.active {
-    background: #00aacc;
-  }
-
-  section {
-    background-color: rgba(0,0,0,0.6);
-    border-radius: 15px;
-    padding: 25px 30px;
-    max-width: 700px;
-    margin: 0 auto 40px auto;
-    text-align: left;
-    display: none;
-  }
-
-  section.active {
-    display: block;
-  }
-
-  h2 {
-    margin-bottom: 15px;
-    color: #00d8ff;
-    text-align: center;
-  }
-
-  .hiring-content p {
-    margin-bottom: 10px;
-  }
-
-  footer {
-    margin-top: 60px;
-    font-size: 0.9em;
-    color: #ccc;
-    text-align: center;
-  }
-
-  @media (max-width: 768px) {
     header {
-      flex-direction: column;
-      text-align: center;
-      gap: 15px;
+      background-color: rgba(0,0,0,0.6);
+      padding: 20px 40px;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      height: 60px;
+      border-radius: 10px;
     }
 
     .title {
-      font-size: 1.6em;
+      flex: 1;
+      text-align: center;
+      font-size: 2em;
+      color: #00d8ff;
+    }
+
+    .discord-link img {
+      height: 48px;
+      width: 48px;
+      transition: transform 0.3s;
+    }
+
+    .discord-link img:hover {
+      transform: scale(1.1);
+    }
+
+    nav {
+      text-align: center;
+      margin-bottom: 40px;
+      flex-wrap: wrap;
     }
 
     nav button {
-      width: 100%;
-      max-width: 300px;
+      background: #00d8ff;
+      border: none;
+      padding: 12px 25px;
+      margin: 5px;
+      border-radius: 25px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    nav button:hover,
+    nav button.active {
+      background: #00aacc;
     }
 
     section {
-      padding: 20px;
+      background-color: rgba(0,0,0,0.6);
+      border-radius: 15px;
+      padding: 25px 30px;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      text-align: left;
+      display: none;
     }
-  }
-</style>
+
+    section.active {
+      display: block;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+      color: #00d8ff;
+      text-align: center;
+    }
+
+    .hiring-content p {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9em;
+      color: #ccc;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+      .video-container {
+        display: none;
+      }
+
+      header {
+        flex-direction: column;
+        text-align: center;
+        gap: 15px;
+      }
+
+      .title {
+        font-size: 1.6em;
+      }
+
+      nav button {
+        width: 100%;
+        max-width: 300px;
+      }
+
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <!-- Video jako pozadí -->
-  <video autoplay muted loop id="background-video">
-    <source src="https://i.imgur.com/3wBI3mL.mp4" type="video/mp4">
-    Váš prohlížeč nepodporuje video tag.
-  </video>
+  <!-- Video v šedém rámečku vlevo -->
+  <div class="video-container">
+    <video autoplay muted loop playsinline>
+      <source src="https://i.imgur.com/3wBI3mL.mp4" type="video/mp4">
+      Váš prohlížeč nepodporuje video tag.
+    </video>
+  </div>
 
+  <!-- Zbytek webu -->
   <header>
     <img src="https://i.imgur.com/33WnLmv.jpeg" alt="LastTrain logo" class="logo" />
     <div class="title">LastTrain</div>
@@ -194,31 +207,33 @@
 
   <section id="about">
     <h2>O podniku</h2>
-    <p>O nás
-V našem podniku, který neseme s hrdostí pod názvem Last Train”,se odehrává příběh spojení mezi láskou k dobrému jídlu a vášní pro unikátní atmosféru. Začátek tohoto příběhu patří předchozímu majiteli, který byl vášnivým milovníkem kulinářského umění a osobitých prostředí.
-Snažíme se vytvořit místo, kde se lidé mohou setkávat nad lahodným jídlem, v příjemné atmosféře plné retro designu. Inspirujeme se klasickými recepty a přinášíme vám chuťové zážitky, které vám zůstanou v paměti. Naše restaurace Last Train,není pouze místem pro výtečné jídlo, ale také pro sdílení společných chvilek, oslav a setkání.
-Tak pokračujeme v našem vzrušujícím příběhu, kde se snoubí kulinářská dovednost s pohodovým prostředím. Věříme, že naše restaurace je místem, kde se propojují chutě, příběhy a lidé. Vítejte v Posledním Vlaku v  místě, kde každý okamžik je jako dobrodružství ve vzrušujícím rytmu našeho podniku.</p>
+    <p>
+      O nás  
+      V našem podniku, který neseme s hrdostí pod názvem Last Train”,se odehrává příběh spojení mezi láskou k dobrému jídlu a vášní pro unikátní atmosféru. Začátek tohoto příběhu patří předchozímu majiteli, který byl vášnivým milovníkem kulinářského umění a osobitých prostředí.
+      Snažíme se vytvořit místo, kde se lidé mohou setkávat nad lahodným jídlem, v příjemné atmosféře plné retro designu. Inspirujeme se klasickými recepty a přinášíme vám chuťové zážitky, které vám zůstanou v paměti. Naše restaurace Last Train,není pouze místem pro výtečné jídlo, ale také pro sdílení společných chvilek, oslav a setkání.
+      Tak pokračujeme v našem vzrušujícím příběhu, kde se snoubí kulinářská dovednost s pohodovým prostředím. Věříme, že naše restaurace je místem, kde se propojují chutě, příběhy a lidé. Vítejte v Posledním Vlaku v  místě, kde každý okamžik je jako dobrodružství ve vzrušujícím rytmu našeho podniku.
+    </p>
   </section>
 
   <footer>
     <p>&copy; LastTrain, založeno 15. 1. 2024 Všechna práva vyhrazena.</p>
   </footer>
 
-<script>
-  const buttons = document.querySelectorAll('nav .nav-btn');
-  const sections = document.querySelectorAll('section');
+  <script>
+    const buttons = document.querySelectorAll('nav .nav-btn');
+    const sections = document.querySelectorAll('section');
 
-  buttons.forEach(btn => {
-    btn.addEventListener('click', () => {
-      buttons.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      sections.forEach(sec => sec.classList.remove('active'));
-      const targetId = btn.getAttribute('data-target');
-      document.getElementById(targetId).classList.add('active');
+    buttons.forEach(btn => {
+      btn.addEventListener('click', () => {
+        buttons.forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        sections.forEach(sec => sec.classList.remove('active'));
+        const targetId = btn.getAttribute('data-target');
+        document.getElementById(targetId).classList.add('active');
+      });
     });
-  });
 
-  document.querySelector('nav .nav-btn').click();
-</script>
+    document.querySelector('nav .nav-btn').click();
+  </script>
 </body>
 </html>
