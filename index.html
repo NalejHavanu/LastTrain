@@ -23,30 +23,29 @@
     margin-bottom: 30px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    gap: 20px;
-    text-align: center;
   }
 
-  header .logo {
+  .logo {
     height: 60px;
     border-radius: 10px;
   }
 
-  header h1 {
+  .title {
+    flex: 1;
+    text-align: center;
+    font-size: 2em;
     color: #00d8ff;
-    font-size: 2.2em;
-    flex: 1 1 100%;
   }
 
-  header .discord-link img {
+  .discord-link img {
     height: 48px;
     width: 48px;
     transition: transform 0.3s;
   }
 
-  header .discord-link img:hover {
+  .discord-link img:hover {
     transform: scale(1.1);
   }
 
@@ -107,10 +106,12 @@
   @media (max-width: 768px) {
     header {
       flex-direction: column;
+      text-align: center;
+      gap: 15px;
     }
 
-    header h1 {
-      font-size: 1.8em;
+    .title {
+      font-size: 1.6em;
     }
 
     nav button {
@@ -127,13 +128,10 @@
 <body>
   <header>
     <img src="https://i.imgur.com/33WnLmv.jpeg" alt="LastTrain logo" class="logo" />
-    <h1>
-      <a href="https://discord.gg/tBhYhWrvMJ" target="_blank" class="discord-link">
-        <img src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif" alt="Discord">
-      </a>
-      LastTrain restaurant
-    </h1>
-    <img src="https://i.imgur.com/33WnLmv.jpeg" alt="LastTrain logo" class="logo" />
+    <div class="title">LastTrain restaurant</div>
+    <a href="https://discord.gg/tBhYhWrvMJ" target="_blank" class="discord-link">
+      <img src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif" alt="Discord">
+    </a>
   </header>
 
   <nav>
@@ -173,7 +171,7 @@
 
   <section id="about">
     <h2>O podniku</h2>
-    <p>V našem podniku, který neseme s hrdostí pod názvem Last Train, se odehrává příběh spojení mezi láskou k dobrému jídlu a vášní pro unikátní atmosféru... (zbytek beze změn)</p>
+    <p>V našem podniku, který neseme s hrdostí pod názvem Last Train, se odehrává příběh spojení mezi láskou k dobrému jídlu a vášní pro unikátní atmosféru... (zbytek textu beze změn)</p>
   </section>
 
   <footer>
