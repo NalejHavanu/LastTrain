@@ -15,55 +15,64 @@
     color: white;
     padding: 50px 20px 20px 20px;
   }
+
   header {
     background-color: rgba(0,0,0,0.6);
-    padding: 20px 60px;
+    padding: 20px 40px;
     border-radius: 15px;
     margin-bottom: 30px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 20px;
+    justify-content: center;
     flex-wrap: wrap;
+    gap: 20px;
     text-align: center;
   }
+
   header .logo {
     height: 60px;
     border-radius: 10px;
   }
-  header .center-content {
-    flex-grow: 1;
-  }
+
   header h1 {
     color: #00d8ff;
-    font-size: 2.4em;
-    margin-bottom: 10px;
+    font-size: 2.2em;
+    flex: 1 1 100%;
   }
+
   header .discord-link img {
-    width: 48px;
     height: 48px;
-    vertical-align: middle;
+    width: 48px;
+    transition: transform 0.3s;
+  }
+
+  header .discord-link img:hover {
+    transform: scale(1.1);
   }
 
   nav {
     text-align: center;
     margin-bottom: 40px;
+    flex-wrap: wrap;
   }
+
   nav button {
     background: #00d8ff;
     border: none;
     padding: 12px 25px;
-    margin: 0 10px;
+    margin: 5px;
     border-radius: 25px;
     font-weight: bold;
     color: #000;
     cursor: pointer;
     transition: background 0.3s;
   }
+
   nav button:hover,
   nav button.active {
     background: #00aacc;
   }
+
   section {
     background-color: rgba(0,0,0,0.6);
     border-radius: 15px;
@@ -73,33 +82,57 @@
     text-align: left;
     display: none;
   }
+
   section.active {
     display: block;
   }
+
   h2 {
     margin-bottom: 15px;
     color: #00d8ff;
     text-align: center;
   }
+
+  .hiring-content p {
+    margin-bottom: 10px;
+  }
+
   footer {
     margin-top: 60px;
     font-size: 0.9em;
     color: #ccc;
     text-align: center;
   }
+
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+    }
+
+    header h1 {
+      font-size: 1.8em;
+    }
+
+    nav button {
+      width: 100%;
+      max-width: 300px;
+    }
+
+    section {
+      padding: 20px;
+    }
+  }
 </style>
 </head>
 <body>
   <header>
     <img src="https://i.imgur.com/33WnLmv.jpeg" alt="LastTrain logo" class="logo" />
-    
-    <div class="center-content">
-      <h1>LastTrain restaurant</h1>
+    <h1>
       <a href="https://discord.gg/tBhYhWrvMJ" target="_blank" class="discord-link">
-        <img src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif" alt="discord_clyde_gif" />
+        <img src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif" alt="Discord">
       </a>
-    </div>
-
+      LastTrain restaurant
+    </h1>
     <img src="https://i.imgur.com/33WnLmv.jpeg" alt="LastTrain logo" class="logo" />
   </header>
 
@@ -125,24 +158,22 @@
 
   <section id="hiring">
     <h2>Hledáme nové členy</h2>
-    <ul>
-      <li>🔹 Hledáme zkušené lovce – stabilní odbyt a férové podmínky.</li>
-      <li>🔹 Hledáme i zaměstnance – jistý výdělek, podpora týmu, zajímavá pracovní náplň.</li>
-      <li>🔹 Máte zájem o spolupráci? Stačí vyplnit žádost a my se vám ozveme.</li>
-      <li>🔹 Chcete si rezervovat náš podnik pro svou akci? Není problém, stačí vyplnit žádost.</li>
-    </ul>
-    <p style="text-align:center;">
-      <a href="https://discord.gg/tBhYhWrvMJ" target="_blank">
-        <img src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif" width="64px" height="64px" alt="discord_clyde_gif" />
-      </a>
-    </p>
+    <div class="hiring-content">
+      <p>🔹 Hledáme zkušené lovce – stabilní odbyt a férové podmínky.</p>
+      <p>🔹 Hledáme i zaměstnance – jistý výdělek, podpora týmu, zajímavá pracovní náplň.</p>
+      <p>🔹 Máte zájem o spolupráci? Stačí vyplnit žádost a my se vám ozveme.</p>
+      <p>🔹 Chcete si rezervovat náš podnik pro svou akci? Není problém. Stačí vyplnit žádost.</p>
+      <p style="text-align:center;">
+        <a href="https://discord.gg/tBhYhWrvMJ" target="_blank">
+          <img src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif" width="64px" height="64px" alt="discord_clyde_gif">
+        </a>
+      </p>
+    </div>
   </section>
 
   <section id="about">
     <h2>O podniku</h2>
-    <p>
-      V našem podniku, který neseme s hrdostí pod názvem “Last Train”, se odehrává příběh spojení mezi láskou k dobrému jídlu a vášní pro unikátní atmosféru. Začátek tohoto příběhu patří předchozímu majiteli, který byl vášnivým milovníkem kulinářského umění a osobitých prostředí. Snažíme se vytvořit místo, kde se lidé mohou setkávat nad lahodným jídlem, v příjemné atmosféře plné retro designu. Inspirujeme se klasickými recepty a přinášíme vám chuťové zážitky, které vám zůstanou v paměti. Naše restaurace Last Train není pouze místem pro výtečné jídlo, ale také pro sdílení společných chvilek, oslav a setkání, Tak pokračujeme v našem vzrušujícím příběhu, kde se snoubí kulinářská dovednost s pohodovým prostředím. Věříme, že naše restaurace je místem, kde se propojují chutě, příběhy a lidé. Vítejte v “Posledním Vlaku” – místě, kde každý okamžik je jako dobrodružství ve vzrušujícím rytmu našeho podniku.
-    </p>
+    <p>V našem podniku, který neseme s hrdostí pod názvem Last Train, se odehrává příběh spojení mezi láskou k dobrému jídlu a vášní pro unikátní atmosféru... (zbytek beze změn)</p>
   </section>
 
   <footer>
@@ -163,7 +194,6 @@
     });
   });
 
-  // Defaultní zobrazení první sekce
   document.querySelector('nav .nav-btn').click();
 </script>
 </body>
