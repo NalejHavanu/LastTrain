@@ -2,8 +2,8 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LastTrain</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Video Gallery</title>
   <style>
     * {
       margin: 0;
@@ -13,12 +13,22 @@
 
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background-color: #111;
+      background: url('https://i.imgur.com/vUEQSTX.jpeg') no-repeat center center fixed;
+      background-size: cover;
       color: white;
       padding: 50px 20px 20px 20px;
+      position: relative;
     }
 
-    /* Video kontejner na levé straně uprostřed */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0, 0, 0, 0.6);
+      z-index: -2;
+    }
+
     .video-container {
       position: fixed;
       left: 20px;
@@ -28,8 +38,8 @@
       border: 2px solid #888;
       border-radius: 15px;
       overflow: hidden;
-      width: 300px;
-      max-height: 400px;
+      width: 400px;
+      max-height: 500px;
       z-index: -1;
     }
 
@@ -39,201 +49,54 @@
       display: block;
     }
 
-    header {
-      background-color: rgba(0,0,0,0.6);
-      padding: 20px 40px;
-      border-radius: 15px;
-      margin-bottom: 30px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
+    .gallery {
+      margin-left: 440px;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
     }
 
-    .logo {
-      height: 60px;
+    .gallery-item {
+      position: relative;
+      overflow: hidden;
       border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
     }
 
-    .title {
-      flex: 1;
-      text-align: center;
-      font-size: 2em;
-      color: #00d8ff;
-    }
-
-    .discord-link img {
-      height: 48px;
-      width: 48px;
-      transition: transform 0.3s;
-    }
-
-    .discord-link img:hover {
-      transform: scale(1.1);
-    }
-
-    nav {
-      text-align: center;
-      margin-bottom: 40px;
-      flex-wrap: wrap;
-    }
-
-    nav button {
-      background: #00d8ff;
-      border: none;
-      padding: 12px 25px;
-      margin: 5px;
-      border-radius: 25px;
-      font-weight: bold;
-      color: #000;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    nav button:hover,
-    nav button.active {
-      background: #00aacc;
-    }
-
-    section {
-      background-color: rgba(0,0,0,0.6);
-      border-radius: 15px;
-      padding: 25px 30px;
-      max-width: 700px;
-      margin: 0 auto 40px auto;
-      text-align: left;
-      display: none;
-    }
-
-    section.active {
+    .gallery-item img {
+      width: 100%;
+      height: auto;
       display: block;
+      transition: transform 0.3s ease;
     }
 
-    h2 {
-      margin-bottom: 15px;
-      color: #00d8ff;
-      text-align: center;
-    }
-
-    .hiring-content p {
-      margin-bottom: 10px;
-    }
-
-    footer {
-      margin-top: 60px;
-      font-size: 0.9em;
-      color: #ccc;
-      text-align: center;
-    }
-
-    @media (max-width: 768px) {
-      .video-container {
-        display: none;
-      }
-
-      header {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-      }
-
-      .title {
-        font-size: 1.6em;
-      }
-
-      nav button {
-        width: 100%;
-        max-width: 300px;
-      }
-
-      section {
-        padding: 20px;
-      }
+    .gallery-item:hover img {
+      transform: scale(1.05);
     }
   </style>
 </head>
 <body>
-  <!-- Video v šedém rámečku vlevo -->
   <div class="video-container">
-    <video autoplay muted loop playsinline>
-      <source src="https://i.imgur.com/3wBI3mL.mp4" type="video/mp4">
-      Váš prohlížeč nepodporuje video tag.
+    <video autoplay loop muted>
+      <source src="tvuj-video-soubor.mp4" type="video/mp4">
+      Tvůj prohlížeč nepodporuje video tag.
     </video>
   </div>
 
-  <!-- Zbytek webu -->
-  <header>
-    <img src="https://i.imgur.com/33WnLmv.jpeg" alt="LastTrain logo" class="logo" />
-    <div class="title">LastTrain</div>
-    <a href="https://discord.gg/tBhYhWrvMJ" target="_blank" class="discord-link">
-      <img src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif" alt="Discord">
-    </a>
-  </header>
-
-  <nav>
-    <button class="nav-btn" data-target="info">Info</button>
-    <button class="nav-btn" data-target="menu">Jídelní lístek</button>
-    <button class="nav-btn" data-target="hiring">Hledáme</button>
-    <button class="nav-btn" data-target="about">O podniku</button>
-  </nav>
-
-  <section id="info">
-    <h2>Informace o restauraci</h2>
-    <p><strong>Adresa:</strong> Postal 490</p>
-    <p><strong>Otevírací doba:</strong> Sledujte zlaté stránky</p>
-  </section>
-
-  <section id="menu">
-    <h2>Jídelní lístek</h2>
-    <div style="text-align: center;">
-      <img src="https://i.imgur.com/vv1zR7D.png" alt="Jídelní lístek" style="max-width:100%; border-radius:10px; border:2px solid #00d8ff;" />
+  <div class="gallery">
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200.png?text=Obrazek+1" alt="Obrázek 1" />
     </div>
-  </section>
-
-  <section id="hiring">
-    <h2>Hledáme nové členy</h2>
-    <div class="hiring-content">
-      <p>🔹 Hledáme zkušené lovce stabilní odbyt a férové podmínky.</p>
-      <p>🔹 Hledáme i zaměstnance jistý výdělek, podpora týmu, zajímavá pracovní náplň.</p>
-      <p>🔹 Máte zájem o spolupráci? Stačí vyplnit žádost a my se vám ozveme.</p>
-      <p>🔹 Chcete si rezervovat náš podnik pro svou akci? Není problém. Stačí vyplnit žádost.</p>
-      <p style="text-align:center;">
-        <a href="https://discord.gg/tBhYhWrvMJ" target="_blank">
-          <img src="https://cdn3.emoji.gg/emojis/5542-discord-clyde-gif.gif" width="64px" height="64px" alt="discord_clyde_gif">
-        </a>
-      </p>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200.png?text=Obrazek+2" alt="Obrázek 2" />
     </div>
-  </section>
-
-  <section id="about">
-    <h2>O podniku</h2>
-    <p>
-      O nás  
-      V našem podniku, který neseme s hrdostí pod názvem Last Train”,se odehrává příběh spojení mezi láskou k dobrému jídlu a vášní pro unikátní atmosféru. Začátek tohoto příběhu patří předchozímu majiteli, který byl vášnivým milovníkem kulinářského umění a osobitých prostředí.
-      Snažíme se vytvořit místo, kde se lidé mohou setkávat nad lahodným jídlem, v příjemné atmosféře plné retro designu. Inspirujeme se klasickými recepty a přinášíme vám chuťové zážitky, které vám zůstanou v paměti. Naše restaurace Last Train,není pouze místem pro výtečné jídlo, ale také pro sdílení společných chvilek, oslav a setkání.
-      Tak pokračujeme v našem vzrušujícím příběhu, kde se snoubí kulinářská dovednost s pohodovým prostředím. Věříme, že naše restaurace je místem, kde se propojují chutě, příběhy a lidé. Vítejte v Posledním Vlaku v  místě, kde každý okamžik je jako dobrodružství ve vzrušujícím rytmu našeho podniku.
-    </p>
-  </section>
-
-  <footer>
-    <p>&copy; LastTrain, založeno 15. 1. 2024 Všechna práva vyhrazena.</p>
-  </footer>
-
-  <script>
-    const buttons = document.querySelectorAll('nav .nav-btn');
-    const sections = document.querySelectorAll('section');
-
-    buttons.forEach(btn => {
-      btn.addEventListener('click', () => {
-        buttons.forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        sections.forEach(sec => sec.classList.remove('active'));
-        const targetId = btn.getAttribute('data-target');
-        document.getElementById(targetId).classList.add('active');
-      });
-    });
-
-    document.querySelector('nav .nav-btn').click();
-  </script>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200.png?text=Obrazek+3" alt="Obrázek 3" />
+    </div>
+    <div class="gallery-item">
+      <img src="https://via.placeholder.com/300x200.png?text=Obrazek+4" alt="Obrázek 4" />
+    </div>
+    <!-- Přidej další obrázky podle potřeby -->
+  </div>
 </body>
 </html>
